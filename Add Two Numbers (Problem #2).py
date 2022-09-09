@@ -19,12 +19,12 @@ class Solution:
         flip_l2: Optional[ListNode] = self.flip(l2)
         
         # Merge digits of each list to make two distinct int values
-        l1_int: int = self.digit_merge(flip_l1)
-        l2_int: int = self.digit_merge(flip_l2)
+        l1_int: int = self.merge_digits(flip_l1)
+        l2_int: int = self.merge_digits(flip_l2)
         
         # Get sum of ints, split the digits of that sum into a new linked list
         my_sum: int = l1_int + l2_int
-        my_sum_list: Optional[ListNode] = self.digit_split(my_sum)
+        my_sum_list: Optional[ListNode] = self.split_digits(my_sum)
         
         # Return the flipped version of that new linked list
         return self.flip(my_sum_list)
@@ -128,7 +128,7 @@ class Solution:
         return count
         
     
-    def digit_merge(self, digit_list: Optional[ListNode]) -> int:
+    def merge_digits(self, digit_list: Optional[ListNode]) -> int:
         """
         Combines a linked list representing an integer, with each node storing a digit
         
@@ -149,7 +149,7 @@ class Solution:
         return int(digit_str)
         
         
-    def digit_split(self, num: int) -> Optional[ListNode]:
+    def split_digits(self, num: int) -> Optional[ListNode]:
         """
         Seperates digits of a given int into a linked list
         
